@@ -13,6 +13,8 @@ class MealsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //Load meals from memory, fill table view with them
     }
 
     override func didReceiveMemoryWarning() {
