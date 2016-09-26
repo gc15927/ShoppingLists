@@ -37,4 +37,12 @@ class Ingredient {
         return quantityType
     }
     
+    func printString()->String {
+        let name: String = getName()
+        let quantity: String = String(getQuantity())
+        let quantityType: String = getQuantityType()
+        let string: String = (name + " " + quantity + " " + quantityType)
+        return string
+    }
+    
 }
