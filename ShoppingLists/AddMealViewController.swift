@@ -52,7 +52,24 @@ class AddMealViewController: UIViewController {
         newMeal.setName(nameText.text!)
         newMeal.setServes(Int(servesText.text!)!)
     
-        //Add meal to global list of meals
+        var meals: [Meal] = []
+        //Check if meals list already exists
+        let fileManager = NSFileManager.defaultManager()
+        if !fileManager.fileExistsAtPath(Meal.ArchiveURL.path!) {
+            //No meals saved
+            meals = [newMeal]
+        }
+        else {
+            //Add new meal to list of meals
+            var meals = NSKeyedUnarchiver.unarchiveObjectWithFile(Meal.ArchiveURL.path!) as? [Meal]
+            meals?.append(newMeal)
+        }
+        //Save meals
+        let successfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL.path!)
+        if !successfulSave {
+            print("Unable to save meals")
+        }
+        
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

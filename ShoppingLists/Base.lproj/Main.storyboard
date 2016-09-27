@@ -161,7 +161,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bottomText" destination="4tT-jw-ddN" id="KGn-gw-tQc"/>
                         <outlet property="ingredientsLabel" destination="pRi-Zf-r6c" id="gsT-uL-IdF"/>
                         <outlet property="nameText" destination="lz7-hH-aLi" id="PuP-4j-eol"/>
                         <outlet property="plusButton" destination="Cnt-jT-qd5" id="QY1-53-3Vo"/>

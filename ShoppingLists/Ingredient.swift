@@ -8,10 +8,34 @@
 
 import Foundation
 
-class Ingredient {
+class Ingredient: NSObject, NSCoding {
     private var name: String = ""
     private var quantity: Int = 0
     private var quantityType: String = ""
+    
+    //Properties
+    struct PropertyKey {
+        static let nameKey = "name"
+        static let quantityKey = "quantity"
+        static let quantityTypeKey = "quantityType"
+    }
+    
+    //NSCoding
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(name, forKey: PropertyKey.nameKey)
+        aCoder.encodeInteger(quantity, forKey: PropertyKey.quantityKey)
+        aCoder.encodeObject(quantityType, forKey: PropertyKey.quantityTypeKey)
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
+        let quantity = aDecoder.decodeIntegerForKey(PropertyKey.quantityKey)
+        let quantityType = aDecoder.decodeObjectForKey(PropertyKey.quantityTypeKey) as! String
+        self.init()
+        self.name = name
+        self.quantity = quantity
+        self.quantityType = quantityType
+    }
     
     func setName(n: String) {
         name = n
