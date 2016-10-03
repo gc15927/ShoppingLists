@@ -29,11 +29,9 @@ class MealsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         else {
             //Add new meal to list of meals
-            print("loaded meals")
             meals = NSKeyedUnarchiver.unarchiveObjectWithFile(Meal.ArchiveURL.path!) as! [Meal]
         }
         table.reloadData()
-        print("count:",meals.count)
     }
     
     override func didReceiveMemoryWarning() {
@@ -56,10 +54,9 @@ class MealsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         // Configure the cell...
         let meal = meals[indexPath.row]
-        print(meal.getName())
-        print(String(meal.getServes()))
+        
         cell.nameLabel.text = meal.getName()
-        cell.servesLabel.text = String(meal.getServes())
+        cell.servesLabel.text = ("Serves: " + String(meal.getServes()))
         
         
         return cell
