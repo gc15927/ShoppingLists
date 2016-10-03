@@ -260,12 +260,40 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Meals:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zkz-s9-D1t">
+                                <rect key="frame" x="77" y="64" width="98" height="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVE-sg-1WB">
+                                <rect key="frame" x="77" y="97" width="30" height="30"/>
+                                <state key="normal" title="Button" image="plus-simple-7"/>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c3O-Pu-bhr">
+                                <rect key="frame" x="183" y="64" width="262" height="220"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="guv-H4-LH9">
+                                <rect key="frame" x="183" y="292" width="262" height="288"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingredients:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhJ-uN-ipD">
+                                <rect key="frame" x="77" y="292" width="98" height="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pza-H8-P9e">
+                                <rect key="frame" x="77" y="325" width="30" height="30"/>
+                                <state key="normal" title="Button" image="plus-simple-7"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pKS-aj-LK6" firstAttribute="width" secondItem="qjc-KI-fRp" secondAttribute="width" id="5f8-cL-iTj"/>
                             <constraint firstItem="pKS-aj-LK6" firstAttribute="leading" secondItem="qjc-KI-fRp" secondAttribute="leadingMargin" constant="-20" id="d7t-Of-OKe"/>
-                            <constraint firstItem="pKS-aj-LK6" firstAttribute="top" secondItem="0jF-jc-tb3" secondAttribute="bottom" id="ftz-qJ-ubi"/>
+                            <constraint firstItem="pKS-aj-LK6" firstAttribute="top" secondItem="0jF-jc-tb3" secondAttribute="bottom" id="xgE-MU-TFG"/>
                         </constraints>
                     </view>
                 </viewController>
