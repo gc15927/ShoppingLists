@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B71D3FFB1DA164A200E0E79A /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71D3FFA1DA164A200E0E79A /* MealTableViewCell.swift */; };
+		B71D3FFD1DA2657000E0E79A /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71D3FFC1DA2657000E0E79A /* AddListViewController.swift */; };
 		B722F9321D95359400EA1800 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B722F9311D95359400EA1800 /* AppDelegate.swift */; };
 		B722F9341D95359400EA1800 /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B722F9331D95359400EA1800 /* MealsViewController.swift */; };
 		B722F9361D95359400EA1800 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B722F9351D95359400EA1800 /* ListsViewController.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		B71D3FFA1DA164A200E0E79A /* MealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		B71D3FFC1DA2657000E0E79A /* AddListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
 		B722F92E1D95359400EA1800 /* ShoppingLists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingLists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B722F9311D95359400EA1800 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B722F9331D95359400EA1800 /* MealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				B722F9351D95359400EA1800 /* ListsViewController.swift */,
 				B722F9611D9535A800EA1800 /* SettingsViewController.swift */,
 				B722F9691D9581C700EA1800 /* AddMealViewController.swift */,
+				B71D3FFC1DA2657000E0E79A /* AddListViewController.swift */,
 				B722F9371D95359400EA1800 /* Main.storyboard */,
 				B722F93A1D95359400EA1800 /* Assets.xcassets */,
 				B722F93C1D95359400EA1800 /* LaunchScreen.storyboard */,
@@ -283,6 +286,7 @@
 				B722F9621D9535A800EA1800 /* SettingsViewController.swift in Sources */,
 				B722F9341D95359400EA1800 /* MealsViewController.swift in Sources */,
 				B71D3FFB1DA164A200E0E79A /* MealTableViewCell.swift in Sources */,
+				B71D3FFD1DA2657000E0E79A /* AddListViewController.swift in Sources */,
 				B722F96A1D9581C700EA1800 /* AddMealViewController.swift in Sources */,
 				B722F9661D95627600EA1800 /* List.swift in Sources */,
 				B722F9681D9563AF00EA1800 /* Ingredient.swift in Sources */,
