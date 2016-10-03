@@ -61,8 +61,9 @@ class AddMealViewController: UIViewController {
         }
         else {
             //Add new meal to list of meals
-            var meals = NSKeyedUnarchiver.unarchiveObjectWithFile(Meal.ArchiveURL.path!) as? [Meal]
-            meals?.append(newMeal)
+            meals = NSKeyedUnarchiver.unarchiveObjectWithFile(Meal.ArchiveURL.path!) as! [Meal]
+            meals.append(newMeal)
+            print(meals.count)
         }
         //Save meals
         let successfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL.path!)

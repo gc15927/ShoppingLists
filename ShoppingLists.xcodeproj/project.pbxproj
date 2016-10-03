@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B71D3FFB1DA164A200E0E79A /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71D3FFA1DA164A200E0E79A /* MealTableViewCell.swift */; };
 		B722F9321D95359400EA1800 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B722F9311D95359400EA1800 /* AppDelegate.swift */; };
 		B722F9341D95359400EA1800 /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B722F9331D95359400EA1800 /* MealsViewController.swift */; };
 		B722F9361D95359400EA1800 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B722F9351D95359400EA1800 /* ListsViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B71D3FFA1DA164A200E0E79A /* MealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		B722F92E1D95359400EA1800 /* ShoppingLists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingLists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B722F9311D95359400EA1800 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B722F9331D95359400EA1800 /* MealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				B722F9631D95626F00EA1800 /* Meal.swift */,
 				B722F9651D95627600EA1800 /* List.swift */,
 				B722F9671D9563AF00EA1800 /* Ingredient.swift */,
+				B71D3FFA1DA164A200E0E79A /* MealTableViewCell.swift */,
 			);
 			path = ShoppingLists;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				B722F9321D95359400EA1800 /* AppDelegate.swift in Sources */,
 				B722F9621D9535A800EA1800 /* SettingsViewController.swift in Sources */,
 				B722F9341D95359400EA1800 /* MealsViewController.swift in Sources */,
+				B71D3FFB1DA164A200E0E79A /* MealTableViewCell.swift in Sources */,
 				B722F96A1D9581C700EA1800 /* AddMealViewController.swift in Sources */,
 				B722F9661D95627600EA1800 /* List.swift in Sources */,
 				B722F9681D9563AF00EA1800 /* Ingredient.swift in Sources */,
@@ -508,6 +512,7 @@
 				B722F95A1D95359400EA1800 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B722F95B1D95359400EA1800 /* Build configuration list for PBXNativeTarget "ShoppingListsTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +521,7 @@
 				B722F95D1D95359400EA1800 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B722F95E1D95359400EA1800 /* Build configuration list for PBXNativeTarget "ShoppingListsUITests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +530,7 @@
 				B722F9601D95359400EA1800 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
