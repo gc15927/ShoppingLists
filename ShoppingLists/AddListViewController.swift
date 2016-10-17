@@ -162,8 +162,7 @@ class AddListViewController: UIViewController, UITableViewDataSource, UITableVie
         switch(tableView.restorationIdentifier!) {
         case "meals":
             let meal = meals[indexPath.row]
-            cell.nameLabel.text = meal.getName()
-            cell.servesLabel.text = (String(meal.getServes()) + "People")
+            cell.nameLabel.text = (meal.getName() + ": " + String(meal.getServes()) + " people")
             break
         case "items":
             break
