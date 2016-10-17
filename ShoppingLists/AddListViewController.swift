@@ -35,6 +35,11 @@ class AddListViewController: UIViewController, UITableViewDataSource, UITableVie
         mealsPicker.hidden = true
         mealsPicker.delegate = self
         mealsPicker.dataSource = self
+        
+        mealsTable.delegate = self
+        mealsTable.dataSource = self
+        itemsTable.delegate = self
+        itemsTable.dataSource = self
 
     }
 
@@ -58,7 +63,8 @@ class AddListViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     //Respond to user pressing the done button in the navigation bar, generate Meal object
-    //and send it to the parent view controller to be added to the list of meals. Also close view
+    //and send it to the parent view controller to be added to the list of meals. Also close view.
+    //Or add meal to list.
     @IBAction func saveButtonPressed(sender: AnyObject) {
         if(saveButton.title == "Save") {
             //Save list
@@ -68,6 +74,10 @@ class AddListViewController: UIViewController, UITableViewDataSource, UITableVie
             //Add meal to list of meals
             saveButton.title = "Save"
             mealsPicker.hidden = true
+            let mealToAdd = existingMeals[mealsPicker.selectedRowInComponent(0)-1]
+            let numberOfPeople = mealsPicker.selectedRowInComponent(1)
+            meals.append(adaptMealForList(mealToAdd, people: numberOfPeople))
+            mealsTable.reloadData()
         }
     }
     
@@ -78,6 +88,19 @@ class AddListViewController: UIViewController, UITableViewDataSource, UITableVie
 
     @IBAction func addItem(sender: AnyObject) {
     
+    }
+    
+    func adaptMealForList(meal: Meal, people: Int) -> Meal {
+        let multiplier = people / meal.getServes()
+        meal.setServes(people)
+        var newIngredients: [Ingredient] = [Ingredient]()
+        for i in meal.fetchIngredients() {
+            i.setQuantity(i.getQuantity()*multiplier)
+            newIngredients.append(i)
+        }
+        meal.setIngredients(newIngredients)
+        
+        return meal
     }
     
     //PICKER
@@ -126,9 +149,8 @@ class AddListViewController: UIViewController, UITableViewDataSource, UITableVie
             case "items":
                 return items.count
             default:
-                break
+                return 1
         }
-        return 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -137,6 +159,17 @@ class AddListViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MealTableViewCell
         
         // Configure the cell...
+        switch(tableView.restorationIdentifier!) {
+        case "meals":
+            let meal = meals[indexPath.row]
+            cell.nameLabel.text = meal.getName()
+            cell.servesLabel.text = (String(meal.getServes()) + "People")
+            break
+        case "items":
+            break
+        default:
+            break
+        }
         
         return cell
     }

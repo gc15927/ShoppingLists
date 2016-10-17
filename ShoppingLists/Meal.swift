@@ -52,6 +52,10 @@ class Meal: NSObject, NSCoding {
         return ingredients
     }
     
+    func setIngredients(newIngredients: [Ingredient]) {
+        ingredients = newIngredients
+    }
+    
     func setName(n: String) {
         name = n
     }
