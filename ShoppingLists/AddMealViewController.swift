@@ -35,6 +35,13 @@ class AddMealViewController: UIViewController, UITableViewDelegate, UITableViewD
         initAlert()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if(mealSet) {
+            nameText.text = mealModel.activeMeal.getName()
+            servesText.text = String(mealModel.activeMeal.getServes())
+        }
+    }
+    
     func initAlert() {
         //Create alert controller properties; textfields and cancel/done buttons
         alert.addAction(UIAlertAction(title: "Done", style: .default){UIAlertAction in self.alertDone()})
@@ -62,8 +69,6 @@ class AddMealViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func setMeal(mealNumber: Int) {
         mealModel.loadMeal(meal: mealNumber)
-        nameText.text = mealModel.activeMeal.getName()
-        servesText.test = mealModel.activeMeal.getServes()
         mealSet = true
     }
     
