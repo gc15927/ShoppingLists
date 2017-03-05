@@ -61,7 +61,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
     // Table
     
     func numberOfSections(in tableView: UITableView) -> Int {

@@ -62,6 +62,8 @@ class AddMealViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func setMeal(mealNumber: Int) {
         mealModel.loadMeal(meal: mealNumber)
+        nameText.text = mealModel.activeMeal.getName()
+        servesText.test = mealModel.activeMeal.getServes()
         mealSet = true
     }
     
@@ -90,9 +92,8 @@ class AddMealViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     //Alert cancelled, no functionality needed
-    func alertCancel() {
-        
-    }
+    func alertCancel() {}
+    
     
     
     // Table

@@ -59,6 +59,14 @@ class MealsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "AddMealViewController") as! AddMealViewController
+        controller.setMeal(mealNumber: indexPath.item)
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
