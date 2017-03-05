@@ -9,9 +9,9 @@
 import Foundation
 
 class Ingredient: NSObject, NSCoding {
-    private var name: String = ""
-    private var quantity: Int = 0
-    private var quantityType: String = ""
+    fileprivate var name: String = ""
+    fileprivate var quantity: Float = 0
+    fileprivate var quantityType: String = ""
     
     //Properties
     struct PropertyKey {
@@ -21,31 +21,31 @@ class Ingredient: NSObject, NSCoding {
     }
     
     //NSCoding
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(name, forKey: PropertyKey.nameKey)
-        aCoder.encodeInteger(quantity, forKey: PropertyKey.quantityKey)
-        aCoder.encodeObject(quantityType, forKey: PropertyKey.quantityTypeKey)
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: PropertyKey.nameKey)
+        aCoder.encode(quantity, forKey: PropertyKey.quantityKey)
+        aCoder.encode(quantityType, forKey: PropertyKey.quantityTypeKey)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
-        let quantity = aDecoder.decodeIntegerForKey(PropertyKey.quantityKey)
-        let quantityType = aDecoder.decodeObjectForKey(PropertyKey.quantityTypeKey) as! String
+        let name = aDecoder.decodeObject(forKey: PropertyKey.nameKey) as! String
+        let quantity = aDecoder.decodeFloat(forKey: PropertyKey.quantityKey)
+        let quantityType = aDecoder.decodeObject(forKey: PropertyKey.quantityTypeKey) as! String
         self.init()
         self.name = name
         self.quantity = quantity
         self.quantityType = quantityType
     }
     
-    func setName(n: String) {
+    func setName(_ n: String) {
         name = n
     }
     
-    func setQuantity(q: Int) {
+    func setQuantity(_ q: Float) {
         quantity = q
     }
     
-    func setQuantityType(qT: String) {
+    func setQuantityType(_ qT: String) {
         quantityType = qT
     }
     
@@ -53,7 +53,7 @@ class Ingredient: NSObject, NSCoding {
         return name
     }
     
-    func getQuantity()->Int {
+    func getQuantity()->Float {
         return quantity
     }
     

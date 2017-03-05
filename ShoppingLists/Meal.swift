@@ -10,9 +10,9 @@ import Foundation
 
 class Meal: NSObject, NSCoding {
     
-    private var name: String = ""
-    private var serves: Int  = 0
-    private var ingredients: [Ingredient] = []
+    fileprivate var name: String = ""
+    fileprivate var serves: Int  = 0
+    fileprivate var ingredients: [Ingredient] = []
     
     //Properties
     struct PropertyKey {
@@ -23,20 +23,20 @@ class Meal: NSObject, NSCoding {
     
     //Archiving Paths
     
-    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("meals")
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("meals")
     
     //NSCoding
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(name, forKey: PropertyKey.nameKey)
-        aCoder.encodeInteger(serves, forKey: PropertyKey.servesKey)
-        aCoder.encodeObject(ingredients, forKey: PropertyKey.ingredientsKey)
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: PropertyKey.nameKey)
+        aCoder.encode(serves, forKey: PropertyKey.servesKey)
+        aCoder.encode(ingredients, forKey: PropertyKey.ingredientsKey)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
-        let serves = aDecoder.decodeIntegerForKey(PropertyKey.servesKey)
-        let ingredients = aDecoder.decodeObjectForKey(PropertyKey.ingredientsKey) as! [Ingredient]
+        let name = aDecoder.decodeObject(forKey: PropertyKey.nameKey) as! String
+        let serves = aDecoder.decodeInteger(forKey: PropertyKey.servesKey)
+        let ingredients = aDecoder.decodeObject(forKey: PropertyKey.ingredientsKey) as! [Ingredient]
         self.init()
         self.name = name
         self.serves = serves
@@ -44,23 +44,23 @@ class Meal: NSObject, NSCoding {
     }
     
     
-    func addIngredient(ingredient: Ingredient) {
+    func addIngredient(_ ingredient: Ingredient) {
         ingredients.append(ingredient)
     }
     
-    func fetchIngredients()->[Ingredient] {
+    func getIngredients()->[Ingredient] {
         return ingredients
     }
     
-    func setIngredients(newIngredients: [Ingredient]) {
+    func setIngredients(_ newIngredients: [Ingredient]) {
         ingredients = newIngredients
     }
     
-    func setName(n: String) {
+    func setName(_ n: String) {
         name = n
     }
     
-    func setServes(s: Int) {
+    func setServes(_ s: Int) {
         serves = s
     }
     

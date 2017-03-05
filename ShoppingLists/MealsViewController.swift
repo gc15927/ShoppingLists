@@ -11,26 +11,19 @@ import UIKit
 class MealsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var table: UITableView!
-    var meals = [Meal]()
+    let mealModel = MealModel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view, typically from a nib.
         table.delegate = self
         table.dataSource = self
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         //Load meals from memory, fill table view with them
-        let fileManager = NSFileManager.defaultManager()
-        if !fileManager.fileExistsAtPath(Meal.ArchiveURL.path!) {
-            //No meals saved
-        }
-        else {
-            //Add new meal to list of meals
-            meals = NSKeyedUnarchiver.unarchiveObjectWithFile(Meal.ArchiveURL.path!) as! [Meal]
-        }
+        mealModel.updateMeals()
         table.reloadData()
     }
     
@@ -39,27 +32,35 @@ class MealsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Dispose of any resources that can be recreated.
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    public func refreshTable() {
+        table.reloadData()
+    }
+    
+    // Table
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meals.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return mealModel.meals.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cellIdentifier = "MealTableViewCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MealTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MealTableViewCell
 
         // Configure the cell...
-        let meal = meals[indexPath.row]
-        
+        let meal = mealModel.meals[(indexPath as NSIndexPath).row]
         cell.nameLabel.text = meal.getName()
         cell.servesLabel.text = ("Serves: " + String(meal.getServes()))
         
-        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
 }

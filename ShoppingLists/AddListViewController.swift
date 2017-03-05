@@ -15,24 +15,19 @@ class AddListViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var mealsTable: UITableView!
     @IBOutlet weak var mealsPicker: UIPickerView!
     
-    var meals = [Meal]()
-    var items = [Ingredient]()
-    var existingMeals = [Meal]()
+    let listModel = ListModel()
+    let mealModel = MealModel()
+    var listSet = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if(!listSet) {
+            setList(listNo: listModel.lists.count)
+        }
         //Load meals from memory, fill table view with them
-        let fileManager = NSFileManager.defaultManager()
-        if !fileManager.fileExistsAtPath(Meal.ArchiveURL.path!) {
-            //No meals saved
-        }
-        else {
-            //Add new meal to list of meals
-            existingMeals = NSKeyedUnarchiver.unarchiveObjectWithFile(Meal.ArchiveURL.path!) as! [Meal]
-        }
-        mealsPicker.hidden = true
+        mealsPicker.isHidden = true
         mealsPicker.delegate = self
         mealsPicker.dataSource = self
         
@@ -50,80 +45,79 @@ class AddListViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //Respond to user pressing the cancel button in the navigation bar, only operation
     //needed is to close the view, as no meal data is saved until the done button is pressed
-    @IBAction func cancelButtonPressed(sender: AnyObject) {
+    @IBAction func cancelButtonPressed(_ sender: AnyObject) {
         if(saveButton.title == "Save") {
             //Close add list view
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
+            listSet = false
         }
         else {
             //Close mealPicker
             saveButton.title = "Save"
-            mealsPicker.hidden = true
+            mealsPicker.isHidden = true
         }
     }
     
     //Respond to user pressing the done button in the navigation bar, generate Meal object
     //and send it to the parent view controller to be added to the list of meals. Also close view.
     //Or add meal to list.
-    @IBAction func saveButtonPressed(sender: AnyObject) {
+    @IBAction func saveButtonPressed(_ sender: AnyObject) {
         if(saveButton.title == "Save") {
             //Save list
-            self.dismissViewControllerAnimated(true, completion: nil)
+            listModel.activeList.setName("New List")
+            listModel.setDate()
+            listModel.saveList()
+            self.dismiss(animated: true, completion: nil)
+            listSet = false
         }
         else {
             //Add meal to list of meals
             saveButton.title = "Save"
-            mealsPicker.hidden = true
-            let mealToAdd = existingMeals[mealsPicker.selectedRowInComponent(0)-1]
-            let numberOfPeople = mealsPicker.selectedRowInComponent(1)
-            meals.append(adaptMealForList(mealToAdd, people: numberOfPeople))
+            mealsPicker.isHidden = true
+            let meal = mealModel.meals[mealsPicker.selectedRow(inComponent: 0)-1]
+            let num = mealsPicker.selectedRow(inComponent: 1)
+            listModel.insertMeal(m: meal, numPeople: num)
             mealsTable.reloadData()
+            itemsTable.reloadData()
         }
     }
     
-    @IBAction func addMeal(sender: AnyObject) {
-        mealsPicker.hidden = false
+    @IBAction func addMeal(_ sender: AnyObject) {
+        mealsPicker.isHidden = false
+        mealsPicker.alpha = 1.0
         saveButton.title = "Add"
     }
-
-    @IBAction func addItem(sender: AnyObject) {
     
+    @IBAction func addItem(_ sender: AnyObject) {
+        
     }
     
-    func adaptMealForList(meal: Meal, people: Int) -> Meal {
-        let multiplier = people / meal.getServes()
-        meal.setServes(people)
-        var newIngredients: [Ingredient] = [Ingredient]()
-        for i in meal.fetchIngredients() {
-            i.setQuantity(i.getQuantity()*multiplier)
-            newIngredients.append(i)
-        }
-        meal.setIngredients(newIngredients)
-        
-        return meal
+    func setList(listNo: Int) {
+        listModel.loadList(list: listNo)
+        listSet = true
     }
     
     //PICKER
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if(component == 0) {
-            return existingMeals.count + 1
+            return mealModel.meals.count + 1
         }
         else {
             return 13
         }
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if(component == 0) {
             if(row == 0) {
                 return "Meal"
             }
             else {
-                return existingMeals[row-1].getName()
+                return mealModel.meals[row-1].getName()
             }
         }
         else {
@@ -138,33 +132,35 @@ class AddListViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     //TABLE
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch(tableView.restorationIdentifier!) {
             case "meals":
-                return meals.count
+                return listModel.activeList.getMeals().count
             case "items":
-                return items.count
+                return listModel.activeList.getIngredients().count
             default:
                 return 1
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = "MealTableViewCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MealTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MealTableViewCell
         
         // Configure the cell...
         switch(tableView.restorationIdentifier!) {
         case "meals":
-            let meal = meals[indexPath.row]
+            let meal = listModel.activeList.getMeals()[(indexPath as NSIndexPath).row]
             cell.nameLabel.text = (meal.getName() + ": " + String(meal.getServes()) + " people")
             break
         case "items":
+            let item = listModel.activeList.getIngredients()[(indexPath as NSIndexPath).row]
+            cell.nameLabel.text = (item.getName() + ": " + String(item.getQuantity()) + " " + item.getQuantityType())
             break
         default:
             break

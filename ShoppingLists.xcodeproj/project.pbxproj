@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B703DF611E59FEE000999890 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B703DF601E59FEE000999890 /* DataService.swift */; };
+		B703DF631E5C5D3500999890 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B703DF621E5C5D3500999890 /* ListModel.swift */; };
+		B703DF651E5C5F4000999890 /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B703DF641E5C5F4000999890 /* MealModel.swift */; };
 		B71D3FFB1DA164A200E0E79A /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71D3FFA1DA164A200E0E79A /* MealTableViewCell.swift */; };
 		B71D3FFD1DA2657000E0E79A /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71D3FFC1DA2657000E0E79A /* AddListViewController.swift */; };
+		B7216FCF1E4B87830080F4CF /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7216FCE1E4B87830080F4CF /* ListViewController.swift */; };
 		B722F9321D95359400EA1800 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B722F9311D95359400EA1800 /* AppDelegate.swift */; };
 		B722F9341D95359400EA1800 /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B722F9331D95359400EA1800 /* MealsViewController.swift */; };
 		B722F9361D95359400EA1800 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B722F9351D95359400EA1800 /* ListsViewController.swift */; };
-		B722F9391D95359400EA1800 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B722F9371D95359400EA1800 /* Main.storyboard */; };
 		B722F93B1D95359400EA1800 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B722F93A1D95359400EA1800 /* Assets.xcassets */; };
 		B722F93E1D95359400EA1800 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B722F93C1D95359400EA1800 /* LaunchScreen.storyboard */; };
 		B722F9491D95359400EA1800 /* ShoppingListsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B722F9481D95359400EA1800 /* ShoppingListsTests.swift */; };
@@ -22,6 +25,9 @@
 		B722F9661D95627600EA1800 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = B722F9651D95627600EA1800 /* List.swift */; };
 		B722F9681D9563AF00EA1800 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B722F9671D9563AF00EA1800 /* Ingredient.swift */; };
 		B722F96A1D9581C700EA1800 /* AddMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B722F9691D9581C700EA1800 /* AddMealViewController.swift */; };
+		B78D69651E46401D00D554E4 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78D69641E46401D00D554E4 /* ListTableViewCell.swift */; };
+		B7CFF6131E6C428400362D2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7CFF6111E6C428400362D2E /* Main.storyboard */; };
+		B7E8AB811E536EDD00AF7990 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E8AB801E536EDD00AF7990 /* IngredientTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,13 +48,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B703DF601E59FEE000999890 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		B703DF621E5C5D3500999890 /* ListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		B703DF641E5C5F4000999890 /* MealModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealModel.swift; sourceTree = "<group>"; };
 		B71D3FFA1DA164A200E0E79A /* MealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		B71D3FFC1DA2657000E0E79A /* AddListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
+		B7216FCE1E4B87830080F4CF /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		B722F92E1D95359400EA1800 /* ShoppingLists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingLists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B722F9311D95359400EA1800 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B722F9331D95359400EA1800 /* MealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewController.swift; sourceTree = "<group>"; };
 		B722F9351D95359400EA1800 /* ListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
-		B722F9381D95359400EA1800 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B722F93A1D95359400EA1800 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B722F93D1D95359400EA1800 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B722F93F1D95359400EA1800 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,6 +72,9 @@
 		B722F9651D95627600EA1800 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		B722F9671D9563AF00EA1800 /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		B722F9691D9581C700EA1800 /* AddMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMealViewController.swift; sourceTree = "<group>"; };
+		B78D69641E46401D00D554E4 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		B7CFF6121E6C428400362D2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../../../../Downloads/ShoppingLists-master/ShoppingLists/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		B7E8AB801E536EDD00AF7990 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,18 +127,24 @@
 			children = (
 				B722F9311D95359400EA1800 /* AppDelegate.swift */,
 				B722F9331D95359400EA1800 /* MealsViewController.swift */,
+				B722F9691D9581C700EA1800 /* AddMealViewController.swift */,
 				B722F9351D95359400EA1800 /* ListsViewController.swift */,
 				B722F9611D9535A800EA1800 /* SettingsViewController.swift */,
-				B722F9691D9581C700EA1800 /* AddMealViewController.swift */,
 				B71D3FFC1DA2657000E0E79A /* AddListViewController.swift */,
-				B722F9371D95359400EA1800 /* Main.storyboard */,
+				B7216FCE1E4B87830080F4CF /* ListViewController.swift */,
+				B703DF601E59FEE000999890 /* DataService.swift */,
+				B703DF621E5C5D3500999890 /* ListModel.swift */,
+				B703DF641E5C5F4000999890 /* MealModel.swift */,
 				B722F93A1D95359400EA1800 /* Assets.xcassets */,
+				B7CFF6111E6C428400362D2E /* Main.storyboard */,
 				B722F93C1D95359400EA1800 /* LaunchScreen.storyboard */,
 				B722F93F1D95359400EA1800 /* Info.plist */,
 				B722F9631D95626F00EA1800 /* Meal.swift */,
 				B722F9651D95627600EA1800 /* List.swift */,
 				B722F9671D9563AF00EA1800 /* Ingredient.swift */,
 				B71D3FFA1DA164A200E0E79A /* MealTableViewCell.swift */,
+				B78D69641E46401D00D554E4 /* ListTableViewCell.swift */,
+				B7E8AB801E536EDD00AF7990 /* IngredientTableViewCell.swift */,
 			);
 			path = ShoppingLists;
 			sourceTree = "<group>";
@@ -212,18 +230,22 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Gareth Carless";
 				TargetAttributes = {
 					B722F92D1D95359400EA1800 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 2WFK95VGB4;
+						LastSwiftMigration = 0800;
 					};
 					B722F9431D95359400EA1800 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = B722F92D1D95359400EA1800;
 					};
 					B722F94E1D95359400EA1800 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = B722F92D1D95359400EA1800;
 					};
 				};
@@ -255,7 +277,7 @@
 			files = (
 				B722F93E1D95359400EA1800 /* LaunchScreen.storyboard in Resources */,
 				B722F93B1D95359400EA1800 /* Assets.xcassets in Resources */,
-				B722F9391D95359400EA1800 /* Main.storyboard in Resources */,
+				B7CFF6131E6C428400362D2E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,15 +302,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B78D69651E46401D00D554E4 /* ListTableViewCell.swift in Sources */,
+				B703DF611E59FEE000999890 /* DataService.swift in Sources */,
 				B722F9361D95359400EA1800 /* ListsViewController.swift in Sources */,
+				B7216FCF1E4B87830080F4CF /* ListViewController.swift in Sources */,
 				B722F9641D95626F00EA1800 /* Meal.swift in Sources */,
 				B722F9321D95359400EA1800 /* AppDelegate.swift in Sources */,
 				B722F9621D9535A800EA1800 /* SettingsViewController.swift in Sources */,
+				B7E8AB811E536EDD00AF7990 /* IngredientTableViewCell.swift in Sources */,
 				B722F9341D95359400EA1800 /* MealsViewController.swift in Sources */,
+				B703DF631E5C5D3500999890 /* ListModel.swift in Sources */,
 				B71D3FFB1DA164A200E0E79A /* MealTableViewCell.swift in Sources */,
 				B71D3FFD1DA2657000E0E79A /* AddListViewController.swift in Sources */,
 				B722F96A1D9581C700EA1800 /* AddMealViewController.swift in Sources */,
 				B722F9661D95627600EA1800 /* List.swift in Sources */,
+				B703DF651E5C5F4000999890 /* MealModel.swift in Sources */,
 				B722F9681D9563AF00EA1800 /* Ingredient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,20 +353,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B722F9371D95359400EA1800 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B722F9381D95359400EA1800 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B722F93C1D95359400EA1800 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B722F93D1D95359400EA1800 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		B7CFF6111E6C428400362D2E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B7CFF6121E6C428400362D2E /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -358,8 +386,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Gareth Carless (E596X7G7VH)";
@@ -405,8 +435,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Gareth Carless (E596X7G7VH)";
@@ -426,6 +458,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -435,10 +468,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2WFK95VGB4;
 				INFOPLIST_FILE = ShoppingLists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = BlackTie.ShoppingLists;
+				PRODUCT_BUNDLE_IDENTIFIER = EasyLists;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -446,10 +481,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2WFK95VGB4;
 				INFOPLIST_FILE = ShoppingLists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = BlackTie.ShoppingLists;
+				PRODUCT_BUNDLE_IDENTIFIER = EasyLists;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -461,6 +498,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = BlackTie.ShoppingListsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShoppingLists.app/ShoppingLists";
 			};
 			name = Debug;
@@ -473,6 +511,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = BlackTie.ShoppingListsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShoppingLists.app/ShoppingLists";
 			};
 			name = Release;
@@ -484,6 +523,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = BlackTie.ShoppingListsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ShoppingLists;
 			};
 			name = Debug;
@@ -495,6 +535,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = BlackTie.ShoppingListsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ShoppingLists;
 			};
 			name = Release;
