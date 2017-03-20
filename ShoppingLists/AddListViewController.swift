@@ -15,6 +15,7 @@ class AddListViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var mealsTable: UITableView!
     @IBOutlet weak var mealsPicker: UIPickerView!
     
+    let alert = UIAlertController(title: "Enter Ingredient", message: nil, preferredStyle: UIAlertControllerStyle.alert)
     let listModel = ListModel()
     let mealModel = MealModel()
     var listSet = false
@@ -35,7 +36,7 @@ class AddListViewController: UIViewController, UITableViewDataSource, UITableVie
         mealsTable.dataSource = self
         itemsTable.delegate = self
         itemsTable.dataSource = self
-
+        initAlert()
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,13 +90,44 @@ class AddListViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     @IBAction func addItem(_ sender: AnyObject) {
-        
+        self.present(alert, animated: true, completion: nil)
     }
     
     func setList(listNo: Int) {
         listModel.loadList(list: listNo)
         listSet = true
     }
+    
+    func initAlert() {
+        //Create alert controller properties; textfields and cancel/done buttons
+        alert.addAction(UIAlertAction(title: "Done", style: .default){UIAlertAction in self.alertDone()})
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default){UIAlertAction in self.alertCancel()})
+        alert.addTextField(configurationHandler: {(textField: UITextField!) in textField.placeholder = "Ingredient"})
+        alert.addTextField(configurationHandler: {(textField: UITextField!) in textField.placeholder = "Quantity"})
+        alert.addTextField(configurationHandler: {(textField: UITextField!) in textField.placeholder = "Quantity type e.g. grams"})
+    }
+    
+    //Alert done button pressed. Pull variables for new ingredient from the alert text fields,
+    //create new ingredient, display, and add to list of ingredients. Clear text fields.
+    func alertDone() {
+        let inName: String = alert.textFields![0].text!
+        let inQuant: String = alert.textFields![1].text!
+        let inQuantType = alert.textFields![2].text!
+        let newIngredient: Ingredient = Ingredient()
+        newIngredient.setName(inName)
+        newIngredient.setQuantity(Float(inQuant)!)
+        newIngredient.setQuantityType(inQuantType)
+        mealModel.activeMeal.addIngredient(newIngredient)
+        itemsTable.reloadData()
+        
+        alert.textFields![0].text! = ""
+        alert.textFields![1].text! = ""
+        alert.textFields![2].text! = ""
+    }
+    
+    //Alert cancelled, no functionality needed
+    func alertCancel() {}
+
     
     //PICKER
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
